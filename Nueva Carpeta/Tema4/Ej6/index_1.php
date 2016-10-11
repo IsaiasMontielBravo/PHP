@@ -10,12 +10,10 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-         Resuelve una ecuacion de segundo grado
+       
+        Muestra los números del 320 al 160, contando de 20 en 20 utilizando un bucle do-while.
         <form action="ecuacion.php" method="get">
-            <input type="number" name="a">x<sup>2</sup> +
-        <input type="number" name="b">x
-        <input type="number" name="c">=0
-        <input type="submit" value="Go">
+           <input type="submit" value="Go">
         </form>
     </body>
 </html>

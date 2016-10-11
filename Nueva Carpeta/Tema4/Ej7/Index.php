@@ -10,12 +10,11 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-         Resuelve una ecuacion de segundo grado
-        <form action="ecuacion.php" method="get">
-            <input type="number" name="a">x<sup>2</sup> +
-        <input type="number" name="b">x
-        <input type="number" name="c">=0
-        <input type="submit" value="Go">
+        Introduzca el codigo
+        <form action="cajaFuerte.php" method="post">
+        <input type="number" name="codigo">
+        <input type="hidden" name="oportunidades" value="3">
+        <input type="submit" value="Continuar">
         </form>
     </body>
 </html>

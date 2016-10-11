@@ -11,13 +11,18 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-         $a = $_GET['a'];
-         $b = $_GET['b'];
-        if ($a==0){
-            echo "Math error";
-        }else{
-         echo "el resultado es x =" . (-$b/$a);
+         if (isset($_GET["numero"])){
+            $numero = $_GET['numero'];
+            $cont=0;
+            $text = 'Es primo';
+            for($i =2;$i<$numero;$i++){
+               if ($numero % $i == 0) $cont++; 
+            }   
+            
+            if ($cont>0)$text = 'No es primo';
+            echo $text;
         }
+         
         ?>
     </body>
 </html>

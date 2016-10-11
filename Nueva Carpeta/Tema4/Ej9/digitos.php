@@ -10,12 +10,14 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-         Resuelve una ecuacion de segundo grado
-        <form action="ecuacion.php" method="get">
-            <input type="number" name="a">x<sup>2</sup> +
-        <input type="number" name="b">x
-        <input type="number" name="c">=0
-        <input type="submit" value="Go">
-        </form>
+        <?php
+        $numero = $_GET['numero'];
+        $n = 0;
+        do{
+                $numero = floor($numero / 10);
+                $n = $n + 1;
+        } while ($numero > 0);
+        echo " Tu numero tiene " . $n . " digitos";
+        ?>
     </body>
 </html>

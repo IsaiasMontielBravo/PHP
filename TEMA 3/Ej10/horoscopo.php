@@ -10,11 +10,10 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-         Resuelve una ecuacion de segundo grado
-        <form action="ecuacion.php" method="get">
-            <input type="number" name="a">x<sup>2</sup> +
-        <input type="number" name="b">x
-        <input type="number" name="c">=0
+        descubre tu horoscopo
+        <form action="horoscopoPHP.php" method="get">
+         Introduzca tu dia<input type="number" name="a">
+        introduzca tu mes<input type="text" name="b">
         <input type="submit" value="Go">
         </form>
     </body>
