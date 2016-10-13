@@ -1,68 +1,67 @@
 <!DOCTYPE html>
 <!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+Ejercicio 2
+Escribe un programa que pida 10 números por teclado y que luego muestre los números introducidos
+junto con las palabras “máximo” y “mínimo” al lado del máximo y del mínimo respectivamente.
 -->
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <?php
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    
+  </head>
+  <body>
+    <?php
+      $n = $_GET['n'];
+      $contadorNumeros = $_GET['contadorNumeros'];
+      $numeroTexto = $_GET['numeroTexto'];
+      
+      if(!isset($n)){
+        $contadorNumeros = 0;
+        $numeroTexto = "";
+      }
+      
+      // Muestra los números introducidos
+      if ($contadorNumeros == 10) {
+        $numeroTexto = $numeroTexto . " " . $n; // añade el último número leído
+        $numeroTexto = substr($numeroTexto, 2); // quita los dos primeros espacios de la cadena
+        $numero = explode(" ", $numeroTexto);
         
-        if(isset($_GET["numero"])){
-		if($_GET["contador"]==9){
+        $maximo = -PHP_INT_MAX;
+        $minimo = PHP_INT_MAX;
         
-        
-        $array=$_GET["array"]. ", ". $_GET["numero"];
-        $numero = explode(", " , $array);
-        $maximo = 0;
-        $minimo = 1000;
-        
-        
-        foreach ($numero as $n){
-            if ($n>$maximo){
-                $maximo=$n;
-            }else if ($n<$minimo){
-                $minimo=$n;
-            }
-        }
-         
-        foreach ($numero as $n){
-                if ($n==$maximo){
-                    echo $n. "Maximo";
-                }else if ($n==$minimo){
-                    echo $n. "minimo";
-                }else{
-                    echo $n;
-                }
-                echo " ";
+        foreach ($numero as $num) {
+          if($maximo < $num){
+            $maximo = $num;
+          }
+          if($minimo > $num){
+            $minimo = $num;
+          }
         }
         
-                }else if($_GET["contador"]==0){
-                            $array=$_GET["numero"];
-                            $contador=$_GET["contador"] + 1;
-                }else{
-                    $array=$_GET["array"]. ", ".$_GET["numero"];
-                    $contador=$_GET["contador"] +1;
-                }
-                    
+        echo "Los números introducidos son: ";
+        foreach ($numero as $num) {
+          echo $num, ", ";
         }
+        echo "</br>";
+        echo "Maximo introducido: ", $maximo, "</br>";
+        echo "Minimo introducido: ", $minimo, "</br>";
         
-                else{
-                    $array="";
-                    $contador=0;
-                }
-  
-        ?>
-        <form action="#" method="get">
-        Introduzca un número:
-        <input type="text" name="numero" autofocus required/>
-		<input type="submit"/>
-		<input type="hidden" name="contador" value="<?=$contador?>"/>
-		<input type="hidden" name="array" value="<?=$array?>"/>
+      }
+        
+      
+      // Pide número y añade el actual a la cadena
+      if (($contadorNumeros < 10) || (!isset($n))) {
+    ?>
+        <h1>Introduce un numero</h1>
+        <form action="index.php" method="GET">
+          <input type="number" name="n" id="numeroId" min="1"  step="1" autofocus>
+          <input type="hidden" name="contadorNumeros" value="<?= ++$contadorNumeros ?>">
+          <input type="hidden" name="numeroTexto" value="<?= $numeroTexto . " " . $n ?>">
+          <input type="submit" value="Continuar">
         </form>
-    </body>
+    <?php
+      }
+    ?>
+  </body>
 </html>

@@ -14,28 +14,29 @@ los tres arrays dispuesto en tres columnas.
     <body>
         <?php
         
-        for ($i = 0; $i < 20; $i++) {
-        // números aleatorios entre 0 y 10 (ambos incluidos)
-        $n[$i] = rand(0, 101);
-            }
-        echo "Numeros aleatorios:";
-        foreach ($n as $numero) {
-        echo  $numero, ",";
-        }
-        echo "<br>";
-        
-        $cuadrado = $numero * $numero;
-        
-        $cubo = $numero * $numero * $numero;
-       echo  "numeros al cuadrado:";
-        foreach ($n as $numero) {
-            echo  $cuadrado , ", ";
-        }
-        echo "<br>";
-       echo "numeros al cubo:";
-        foreach ($n as $numero) {
-            echo $cubo , ", ";
-        }
+         for ($i = 0; $i < 20; $i++) {
+        // números aleatorios entre 0 y 20 (ambos incluidos)
+        $numero[$i] = rand(0, 100);
+        $cuadrado[$i] = $numero[$i] * $numero[$i];
+        $cubo[$i] = $numero[$i] * $numero[$i] * $numero[$i];
+      }
+      echo "<div><b>Numero:</b> </br>";
+      foreach ($numero as $elemento) {
+        echo $elemento, ", ";
+      }
+      echo "</div>";
+      
+      echo "<div><b>Cuadrado:</b> </br>";
+      foreach ($cuadrado as $elemento) {
+        echo $elemento, "," ;
+      }
+      echo "</div>";
+      
+      echo "<div><b>Cubo:</b> </br>";
+      foreach ($cubo as $elemento) {
+        echo $elemento , ", ";
+      }
+      echo "</div>";
         
         ?>
     </body>
