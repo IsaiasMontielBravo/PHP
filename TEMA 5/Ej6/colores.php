@@ -15,7 +15,7 @@ and open the template in the editor.
             $totalNumeros = $_GET['totalNumeros'];
             $numeroTexto = $_GET['numeroTexto'];
             
-            echo $totalNumeros;
+            
             
             if(!isset($numero)){
                 $totalNumeros = 0;
