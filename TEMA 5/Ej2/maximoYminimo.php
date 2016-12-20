@@ -22,14 +22,17 @@ junto con las palabras “máximo” y “mínimo” al lado del máximo y del m
       }
       
       // Muestra los números introducidos
-      if ($contadorNumeros == 10) {
-        $numeroTexto = $numeroTexto . " " . $n; // añade el último número leído
+      if ($n < 0) {
+        // añade el último número leído
         $numeroTexto = substr($numeroTexto, 2); // quita los dos primeros espacios de la cadena
         $numero = explode(" ", $numeroTexto);
+        
         
         $maximo = -PHP_INT_MAX;
         $minimo = PHP_INT_MAX;
         
+       
+        if ($n < 0){
         foreach ($numero as $num) {
           if($maximo < $num){
             $maximo = $num;
@@ -38,7 +41,9 @@ junto con las palabras “máximo” y “mínimo” al lado del máximo y del m
             $minimo = $num;
           }
         }
+        }
         
+       
         echo "Los números introducidos son: ";
         foreach ($numero as $num) {
           echo $num, ", ";
@@ -46,16 +51,17 @@ junto con las palabras “máximo” y “mínimo” al lado del máximo y del m
         echo "</br>";
         echo "Maximo introducido: ", $maximo, "</br>";
         echo "Minimo introducido: ", $minimo, "</br>";
+        }
         
-      }
+      
         
       
       // Pide número y añade el actual a la cadena
-      if (($contadorNumeros < 10) || (!isset($n))) {
+      if (($n >= 0) || (!isset($n))) {
     ?>
         <h1>Introduce un numero</h1>
-        <form action="index.php" method="GET">
-          <input type="number" name="n" id="numeroId" min="1"  step="1" autofocus>
+        <form action="maximoYminimo.php" method="GET">
+          <input type="number" name="n" id="numeroId"  step="1" autofocus>
           <input type="hidden" name="contadorNumeros" value="<?= ++$contadorNumeros ?>">
           <input type="hidden" name="numeroTexto" value="<?= $numeroTexto . " " . $n ?>">
           <input type="submit" value="Continuar">
