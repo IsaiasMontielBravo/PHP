@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link type="text/css" rel="stylesheet" href="../View/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../View/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../View/css/bootstrap-theme.min.css">
+        <title></title>
+    </head>
+    <body>
+        <div class="container">
+            <div id="cabeza">
+
+
+               <h1 id="tilulo">Super Blog</h1>
+
+             
+            </div>
+           
+            <header class="header">
+           
+
+                <nav class="navbar navbar-inverse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="../Controller/index.php">Principal</a></li>
+                        <li><a href="../Controller/add.php">Añadir Post</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+        
+        {% block contenido %}
+        {% endblock contenido %}
+        
+
+    </body>
+</html>
